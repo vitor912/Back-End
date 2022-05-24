@@ -1,7 +1,5 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SalesWebMvc.Models
 {
@@ -9,5 +7,18 @@ namespace SalesWebMvc.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
+        public ICollection<Seller> Sellers { get; set; } = new List<Seller>();
+
+        public Departamento()
+        {
+        }
+
+        public Departamento(int id, string nome)
+        {
+            Id = id;
+            Nome = nome;
+        }
     }
+
+    
 }
