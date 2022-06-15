@@ -1,6 +1,6 @@
 using System;
 
-namespace TelaDeLoginMvc.Models
+namespace TelaDeLogin.Models.ViewModels
 {
     public class ErrorViewModel
     {

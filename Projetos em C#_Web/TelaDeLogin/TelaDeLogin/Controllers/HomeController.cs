@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using TelaDeLoginMvc.Models;
+using TelaDeLogin.Models.ViewModels;
 
-namespace TelaDeLoginMvc.Controllers
+namespace TelaDeLogin.Controllers
 {
     public class HomeController : Controller
     {

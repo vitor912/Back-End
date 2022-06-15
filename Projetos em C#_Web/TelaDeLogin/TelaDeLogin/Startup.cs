@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
@@ -8,8 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using TelaDeLogin.Models;
 
-namespace TelaDeLoginMvc
+namespace TelaDeLogin
 {
     public class Startup
     {
@@ -24,6 +26,9 @@ namespace TelaDeLoginMvc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<TelaDeLoginContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("TelaDeLoginContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
