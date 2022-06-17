@@ -13,6 +13,6 @@ namespace TelaDeLogin.Models
         {
         }
 
-        public DbSet<TelaDeLogin.Models.Login> Login { get; set; }
+        public DbSet<TelaDeLogin.Models.Usuarios> Login { get; set; }
     }
 }

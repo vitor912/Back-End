@@ -30,12 +30,13 @@ namespace SalesWebMvc
 
             services.AddDbContext<SalesWebMvcContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("SalesWebMvcContext"), builder =>
-        builder.MigrationsAssembly("SalesWebMvc")));
+                        builder.MigrationsAssembly("SalesWebMvc")));
 
 
             services.AddScoped<SeedingService>();
             services.AddScoped<SellerService>();
             services.AddScoped<DepartmentService>();
+            services.AddScoped<LoginService>();            
 
         }
 
@@ -64,7 +65,7 @@ namespace SalesWebMvc
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Login}/{action=Login}/{id?}");
             });
         }
     }

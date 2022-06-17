@@ -28,7 +28,8 @@ namespace TelaDeLogin
             services.AddControllersWithViews();
 
             services.AddDbContext<TelaDeLoginContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("TelaDeLoginContext")));
+                    options.UseMySql(Configuration.GetConnectionString("TelaDeLoginContext"), builder =>
+                        builder.MigrationsAssembly("TelaDeLogin")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +56,7 @@ namespace TelaDeLogin
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Login}/{action=Index}/{id?}");
             });
         }
     }
