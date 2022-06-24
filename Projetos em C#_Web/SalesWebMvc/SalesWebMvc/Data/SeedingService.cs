@@ -23,10 +23,10 @@ namespace SalesWebMvc.Data
                 return; // O banco de dados ja foi populado (DataBase has been seeded)
             }
 
-            Departamento d1 = new Departamento(1, "Computadores(Computers)");
-            Departamento d2 = new Departamento(2, "Eletronicos(Eletronic)");
-            Departamento d3 = new Departamento(3, "Moda(Fashion)");
-            Departamento d4 = new Departamento(4, "Livros(Books)");
+            Departamento d1 = new Departamento(1, "Computadores");
+            Departamento d2 = new Departamento(2, "Eletronicos");
+            Departamento d3 = new Departamento(3, "Moda");
+            Departamento d4 = new Departamento(4, "Livros");
 
             Seller s1 = new Seller(1, "Vitor Ribeiro", "vitor@hotmail.com", new DateTime(1987, 7, 15), 10000.0, d1);
             Seller s2 = new Seller(2, "Sueli Cristina", "su.cris@hotmail.com", new DateTime(1994, 2, 28), 10000.0, d2);

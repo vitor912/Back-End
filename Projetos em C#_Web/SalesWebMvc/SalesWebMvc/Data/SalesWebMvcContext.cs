@@ -18,6 +18,6 @@ namespace SalesWebMvc.Data
         public DbSet<Seller> Sellers { get; set; }
         public DbSet<SalesRecord> SalesRecord { get; set; }
         public DbSet<Login> Logins { get; set; }
-
+        public object Seller { get; internal set; }
     }
 }
