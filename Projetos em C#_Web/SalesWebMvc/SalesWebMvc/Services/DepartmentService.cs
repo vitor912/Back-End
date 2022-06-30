@@ -1,7 +1,7 @@
 ﻿using SalesWebMvc.Models;
-using SalesWebMvc.Data;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+
 
 namespace SalesWebMvc.Services
 {
@@ -14,9 +14,9 @@ namespace SalesWebMvc.Services
             _context = context;
         }
 
-        public List<Departamento> FindAll()
+        public List<Department> FindAll()
         {
-            return _context.Departamento.OrderBy(x => x.Nome).ToList();
+            return _context.Department.OrderBy(x => x.Name).ToList();
         }
     }
 }

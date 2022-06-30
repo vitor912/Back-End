@@ -4,30 +4,28 @@ using System.Linq;
 
 namespace SalesWebMvc.Models
 {
-    public class Departamento
+    public class Department
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
+        public string Name { get; set; }
         public ICollection<Seller> Sellers { get; set; } = new List<Seller>();
 
-        public Departamento()
+        public Department()
         {
         }
 
-        public Departamento(int id, string nome)
+        public Department(int id, string name)
         {
             Id = id;
-            Nome = nome;
+            Name = name;
         }
-
         public void AddSeller(Seller seller)
         {
             Sellers.Add(seller);
         }
-
-        public double TotalSales(DateTime initial, DateTime final) 
+        public double TotalSales(DateTime initial, DateTime final)
         {
             return Sellers.Sum(seller => seller.TotalSales(initial, final));
         }
-    }    
+    }
 }

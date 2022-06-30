@@ -7,22 +7,22 @@ namespace SalesWebMvc.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Sellers_Departamento_DepartamentoId",
-                table: "Sellers");
+                name: "FK_Seller_Department_DepartmentId",
+                table: "Seller");
 
             migrationBuilder.AlterColumn<int>(
-                name: "DepartamentoId",
-                table: "Sellers",
+                name: "DepartmentId",
+                table: "Seller",
                 nullable: false,
                 oldClrType: typeof(int),
                 oldType: "int",
                 oldNullable: true);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Sellers_Departamento_DepartamentoId",
-                table: "Sellers",
-                column: "DepartamentoId",
-                principalTable: "Departamento",
+                name: "FK_Seller_Department_DepartmentId",
+                table: "Seller",
+                column: "DepartmentId",
+                principalTable: "Department",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }
@@ -30,21 +30,21 @@ namespace SalesWebMvc.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Sellers_Departamento_DepartamentoId",
-                table: "Sellers");
+                name: "FK_Seller_Department_DepartmentId",
+                table: "Seller");
 
             migrationBuilder.AlterColumn<int>(
-                name: "DepartamentoId",
-                table: "Sellers",
+                name: "DepartmentId",
+                table: "Seller",
                 type: "int",
                 nullable: true,
                 oldClrType: typeof(int));
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Sellers_Departamento_DepartamentoId",
-                table: "Sellers",
-                column: "DepartamentoId",
-                principalTable: "Departamento",
+                name: "FK_Seller_Department_DepartmentId",
+                table: "Seller",
+                column: "DepartmentId",
+                principalTable: "Department",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Restrict);
         }

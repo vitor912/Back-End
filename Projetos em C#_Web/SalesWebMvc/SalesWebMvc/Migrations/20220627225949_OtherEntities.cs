@@ -9,7 +9,7 @@ namespace SalesWebMvc.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Sellers",
+                name: "Seller",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -18,15 +18,15 @@ namespace SalesWebMvc.Migrations
                     Email = table.Column<string>(nullable: true),
                     BirthDate = table.Column<DateTime>(nullable: false),
                     BaseSalary = table.Column<double>(nullable: false),
-                    DepartamentoId = table.Column<int>(nullable: true)
+                    DepartmentId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Sellers", x => x.Id);
+                    table.PrimaryKey("PK_Seller", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Sellers_Departamento_DepartamentoId",
-                        column: x => x.DepartamentoId,
-                        principalTable: "Departamento",
+                        name: "FK_Seller_Department_DepartmentId",
+                        column: x => x.DepartmentId,
+                        principalTable: "Department",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -46,9 +46,9 @@ namespace SalesWebMvc.Migrations
                 {
                     table.PrimaryKey("PK_SalesRecord", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SalesRecord_Sellers_SellerId",
+                        name: "FK_SalesRecord_Seller_SellerId",
                         column: x => x.SellerId,
-                        principalTable: "Sellers",
+                        principalTable: "Seller",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -59,9 +59,9 @@ namespace SalesWebMvc.Migrations
                 column: "SellerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Sellers_DepartamentoId",
-                table: "Sellers",
-                column: "DepartamentoId");
+                name: "IX_Seller_DepartmentId",
+                table: "Seller",
+                column: "DepartmentId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -70,7 +70,7 @@ namespace SalesWebMvc.Migrations
                 name: "SalesRecord");
 
             migrationBuilder.DropTable(
-                name: "Sellers");
+                name: "Seller");
         }
     }
 }

@@ -15,18 +15,17 @@ namespace SalesWebMvc.Data
         {
             _context = context;
         }
-
         public void Seed()
         {
-            if (_context.Departamento.Any() || _context.Sellers.Any() || _context.SalesRecord.Any())
+            if (_context.Department.Any() || _context.Seller.Any() || _context.SalesRecord.Any())
             {
-                return; // O banco de dados ja foi populado (DataBase has been seeded)
+                return;  // DB has been seeded
             }
 
-            Departamento d1 = new Departamento(1, "Computadores");
-            Departamento d2 = new Departamento(2, "Eletronicos");
-            Departamento d3 = new Departamento(3, "Moda");
-            Departamento d4 = new Departamento(4, "Livros");
+            Department d1 = new Department(1, "Computers");
+            Department d2 = new Department(2, "Eletronics");
+            Department d3 = new Department(3, "Fashion");
+            Department d4 = new Department(4, "Books");
 
             Seller s1 = new Seller(1, "Vitor Ribeiro", "vitor@hotmail.com", new DateTime(1987, 7, 15), 10000.0, d1);
             Seller s2 = new Seller(2, "Sueli Cristina", "su.cris@hotmail.com", new DateTime(1994, 2, 28), 10000.0, d2);
@@ -66,8 +65,8 @@ namespace SalesWebMvc.Data
             SalesRecord r29 = new SalesRecord(29, new DateTime(2021, 10, 23), 12000.0, SaleStatus.Billed, s5);
             SalesRecord r30 = new SalesRecord(30, new DateTime(2021, 10, 12), 5000.0, SaleStatus.Billed, s2);
 
-            _context.Departamento.AddRange(d1, d2, d3, d4);
-            _context.Sellers.AddRange(s1, s2, s3, s4, s5, s6);
+            _context.Department.AddRange(d1, d2, d3, d4);
+            _context.Seller.AddRange(s1, s2, s3, s4, s5, s6);
             _context.SalesRecord.AddRange(
                 r1, r2, r3, r4, r5, r6, r7, r8, r9, r10,
                 r11, r12, r13, r14, r15, r16, r17, r18, r19, r20,
@@ -75,8 +74,6 @@ namespace SalesWebMvc.Data
 
             _context.SaveChanges();
 
-
         }
-
     }
 }
